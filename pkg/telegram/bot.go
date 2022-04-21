@@ -12,8 +12,8 @@ type Bot struct {
 	redirectUrl string
 }
 
-func NewBot(bot *tgbotapi.BotAPI, site *template.Template, redirectUrl string) *Bot {
-	return &Bot{bot: bot, site: site, redirectUrl: redirectUrl}
+func NewBot(bot *tgbotapi.BotAPI) *Bot {
+	return &Bot{bot: bot}
 }
 
 func (b *Bot) StartBot() error {
