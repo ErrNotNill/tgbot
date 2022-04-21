@@ -27,7 +27,7 @@ func (b *Bot) handleUpdates(updates tgbotapi.UpdatesChannel) {
 func (b *Bot) handleCommand(message *tgbotapi.Message) error {
 	switch message.Command() {
 	case "start":
-		msg := tgbotapi.NewMessage(message.Chat.ID, "You use command start")
+		msg := tgbotapi.NewMessage(message.Chat.ID, "You use command start.")
 		_, err := b.bot.Send(msg)
 		return err
 	default:
