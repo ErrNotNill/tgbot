@@ -7,10 +7,11 @@ import (
 	"tgbot/server"
 )
 
-const Token = "1953280162:AAEWa1cqSHlpHCTi-GEu7CjGyrIt2k7jAAs"
+const Token = "1953280162:AAFMVzq63WHhr_KkNjwGgObHbI4PbQcmQqg"
 const redirectUrl = "localhost:8000"
 
 func main() {
+
 	go func() {
 		server.RunServer()
 	}()
