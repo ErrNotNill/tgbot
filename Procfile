@@ -1,1 +1,1 @@
-web: cmd/bot/main.go
+worker: cmd/bot/main.go
