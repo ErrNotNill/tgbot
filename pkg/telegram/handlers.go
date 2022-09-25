@@ -79,7 +79,7 @@ func (b *Bot) handleMessage(message *tgbotapi.Message) error {
 	return err
 }
 
-var Keyboard []*tgbotapi.InlineKeyboardMarkup
+//var Keyboard []*tgbotapi.InlineKeyboardMarkup
 
 type DeleteMessageConfig struct {
 	ChannelUsername string
@@ -95,13 +95,10 @@ func (config DeleteMessageConfig) Parameters() (tgbotapi.Params, error) {
 }
 
 func (b *Bot) KeyBoard9Buttons() tgbotapi.InlineKeyboardMarkup {
-	//firstkeyboard :=
-	//tgbotapi.NewInlineKeyboardButtonData("menu",)
-	//tgbotapi.BaseInputMedia{Media: }
 
 	keyboard := tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonURL("Localhost", "http://127.0.0.1:8000"),
+			tgbotapi.NewInlineKeyboardButtonURL("Localhost", "http://localhost:8000"),
 			tgbotapi.NewInlineKeyboardButtonData("2", "2"),
 			tgbotapi.NewInlineKeyboardButtonData("3", "3"),
 		), tgbotapi.NewInlineKeyboardRow(

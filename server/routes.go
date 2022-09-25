@@ -9,15 +9,12 @@ import (
 
 func Routes() *mux.Router {
 	route := mux.NewRouter()
-	route.HandleFunc("/", NewRoute)
+	route.HandleFunc("/", NewHandler)
 
 	//add even more routes
 	return route
 }
 
-type Mess struct {
-}
-
-func NewRoute(w http.ResponseWriter, r *http.Request) {
-
+func NewHandler(w http.ResponseWriter, r *http.Request) {
+	//
 }

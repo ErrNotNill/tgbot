@@ -7,4 +7,4 @@ require (
 	github.com/gorilla/mux v1.8.0
 )
 
-require github.com/alexeykhan/amocrm v0.1.0 // indirect
+require github.com/alexeykhan/amocrm v0.1.0
