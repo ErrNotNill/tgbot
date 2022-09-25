@@ -27,9 +27,10 @@ func (b *Bot) handleUpdates(updates tgbotapi.UpdatesChannel) {
 }
 
 func (b *Bot) handleCommand(message *tgbotapi.Message) error {
-	switch message.Command() {
-	case "start":
 
+	switch message.Command() {
+
+	case "start":
 		msg := tgbotapi.NewMessage(message.Chat.ID, "You used command start.")
 		msg.ReplyMarkup = b.KeyBoard9Buttons()
 
@@ -38,6 +39,7 @@ func (b *Bot) handleCommand(message *tgbotapi.Message) error {
 			log.Printf(err.Error())
 		}
 		return err
+
 	case "find":
 		_, err := b.bot.CopyMessage(tgbotapi.CopyMessageConfig{FromChannelUsername: `TestChan8888`})
 		if err != nil {
@@ -51,6 +53,22 @@ func (b *Bot) handleCommand(message *tgbotapi.Message) error {
 			log.Printf(err.Error())
 		}
 		return err
+
+	case "deal":
+		_, err := b.bot.CopyMessage(tgbotapi.CopyMessageConfig{FromChannelUsername: `TestChan8888`})
+		if err != nil {
+			log.Printf(err.Error())
+		}
+		//b.bot.GetInviteLink(tgbotapi.ChatInviteLinkConfig{tgbotapi.ChatConfig{ChatID: }})
+
+		msg := tgbotapi.NewMessage(message.Chat.ID, "You used command deal.")
+		msg.ReplyMarkup = b.initInlines
+		_, err = b.bot.Send(msg)
+		if err != nil {
+			log.Printf(err.Error())
+		}
+		return err
+
 	default:
 		msg := tgbotapi.NewMessage(message.Chat.ID, "I dont know this command")
 		_, err := b.bot.Send(msg)
@@ -62,7 +80,7 @@ func (b *Bot) handleCommand(message *tgbotapi.Message) error {
 func (b *Bot) handleVideo(video *tgbotapi.Video) {
 }
 func (b *Bot) initInlines(tg tgbotapi.InlineQuery) {
-
+	//
 }
 
 func (b *Bot) handleMessage(message *tgbotapi.Message) error {
