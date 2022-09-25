@@ -29,9 +29,24 @@ func (b *Bot) handleUpdates(updates tgbotapi.UpdatesChannel) {
 func (b *Bot) handleCommand(message *tgbotapi.Message) error {
 	switch message.Command() {
 	case "start":
+
 		msg := tgbotapi.NewMessage(message.Chat.ID, "You used command start.")
 		msg.ReplyMarkup = b.KeyBoard9Buttons()
+
 		_, err := b.bot.Send(msg)
+		if err != nil {
+			log.Printf(err.Error())
+		}
+		return err
+	case "find":
+		_, err := b.bot.CopyMessage(tgbotapi.CopyMessageConfig{FromChannelUsername: `TestChan8888`})
+		if err != nil {
+			log.Printf(err.Error())
+		}
+		//b.bot.GetInviteLink(tgbotapi.ChatInviteLinkConfig{tgbotapi.ChatConfig{ChatID: }})
+
+		msg := tgbotapi.NewMessage(message.Chat.ID, "You used command find.")
+		_, err = b.bot.Send(msg)
 		if err != nil {
 			log.Printf(err.Error())
 		}
@@ -81,13 +96,28 @@ func (config DeleteMessageConfig) Parameters() (tgbotapi.Params, error) {
 
 func (b *Bot) KeyBoard9Buttons() tgbotapi.InlineKeyboardMarkup {
 	//firstkeyboard :=
+	//tgbotapi.NewInlineKeyboardButtonData("menu",)
+	//tgbotapi.BaseInputMedia{Media: }
+
 	keyboard := tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
 			tgbotapi.NewInlineKeyboardButtonURL("Localhost", "http://127.0.0.1:8000"),
 			tgbotapi.NewInlineKeyboardButtonData("2", "2"),
 			tgbotapi.NewInlineKeyboardButtonData("3", "3"),
+		), tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonData("4", "4"),
+			tgbotapi.NewInlineKeyboardButtonData("5", "5"),
+			tgbotapi.NewInlineKeyboardButtonData("6", "6"),
+		), tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonData("7", "7"),
+			tgbotapi.NewInlineKeyboardButtonData("8", "8"),
+			tgbotapi.NewInlineKeyboardButtonData("9", "9"),
+		), tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonData("<< back", "7"),
+			tgbotapi.NewInlineKeyboardButtonData("8", "8"),
+			tgbotapi.NewInlineKeyboardButtonData("next >>", "9"),
 		))
-	//secondkeyboard :=
+	//secondkeyboard :
 	tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
 			tgbotapi.NewInlineKeyboardButtonData("4", "4"),
