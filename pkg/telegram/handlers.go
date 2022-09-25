@@ -116,7 +116,7 @@ func (b *Bot) KeyBoard9Buttons() tgbotapi.InlineKeyboardMarkup {
 
 	keyboard := tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonURL("Localhost", "http://localhost:8000"),
+			tgbotapi.NewInlineKeyboardButtonURL("Localhost", "http://127.0.0.1:8000"),
 			tgbotapi.NewInlineKeyboardButtonData("2", "2"),
 			tgbotapi.NewInlineKeyboardButtonData("3", "3"),
 		), tgbotapi.NewInlineKeyboardRow(
